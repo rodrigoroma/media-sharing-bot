@@ -3,7 +3,7 @@ var Config = require('./config.js');
 var TelegramBot = require('node-telegram-bot-api');
 
 // Initialization
-var bot = new TelegramBot(Config.bot_token, {polling: true});
+var bot = new TelegramBot(process.env.MEDIA_BOT_TOKEN, {polling: true});
 
 var photos = [
 	'AgADAQAEqDEbi4ZlCEomqoBDhkt2TfTnLwAECg1ROYvdacGJswACAg',
