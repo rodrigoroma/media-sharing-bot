@@ -14,7 +14,7 @@ $ npm install
 
 You will want to set up your bot environment variables on the server where it will run. You will need to configure the following variables:
 
-BOT_TOKEN (Bot token generated using [BotFather](http://botsfortelegram.com/project/the-bot-father/))
+MEDIA_BOT_TOKEN (Bot token generated using [BotFather](http://botsfortelegram.com/project/the-bot-father/))
 
 ## Starting bot
 

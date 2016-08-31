@@ -1,11 +1,17 @@
 module.exports = {
-	
+
 	// Language
 	"interface": {
 		"buttons": {
-			"like": "É boa",
-			"dislike": "É fraca"
+			"like": "boa",
+			"dislike": "fraca"
 		}
+	},
+
+	//Mysql connection
+	"mysql":{
+		host			: 'localhost',
+		database	: 'media_sharing_bot'
 	}
-	
+
 };
