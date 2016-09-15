@@ -5,27 +5,28 @@ var mysql = require('mysql');
 
 var connection = mysql.createConnection({
   host     : Config.mysql.host,
-  user     : process.env.MEDIA_BOT_DB_USER,
-  password : process.env.MEDIA_BOT_DB_PASS,
+  user     : Config.mysql.user,
+  password : Config.mysql.password,
   database : Config.mysql.database
 });
 
 // Initialization
 var bot = new TelegramBot(process.env.MEDIA_BOT_TOKEN, {polling: true});
 
-connection.connect(function(err){
-if(!err) {
-    console.log("Database is connected ... ");
-} else {
-    console.log("Error connecting database ... ");
-}
+connection.connect(function(err) {
+  if (err) {
+    console.error('error connecting: ' + err.stack);
+    return;
+  }
+
+  console.log('connected as id ' + connection.threadId);
 });
 
 // User sent an image
 bot.on('photo', function (msg) {
 	console.log("-------- MEDIA RECEIVED ---------");
-
-	var media = { file_id: msg.photo[3].file_id };
+  console.log(msg);
+	var media = { file_id: msg.photo[msg.photo.length-1].file_id };
 	connection.query('INSERT INTO media SET ?', media, function(err,res){
 	  if(err) throw err;
 	  console.log('Last insert ID:', res.insertId);
