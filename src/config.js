@@ -10,10 +10,11 @@ module.exports = {
 
 	//Mysql connection
 	"mysql":{
-		"host"			: 'localhost',
-		"database"	: 'media_sharing_bot',
-		"user"      : process.env.MEDIA_BOT_DB_USER,
-		"password"  : process.env.MEDIA_BOT_DB_PASS,
+		"host"            : 'localhost',
+		"database"        : 'media_sharing_bot',
+		"user"            : process.env.MEDIA_BOT_DB_USER,
+		"password"        : process.env.MEDIA_BOT_DB_PASS,
+		"connectionLimit" : 10
 	}
 
 };
